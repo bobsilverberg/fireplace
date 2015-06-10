@@ -60,3 +60,4 @@ tags
 tests/captures/*
 webqa-tests
 yulelog_*
+virtualenv-*
