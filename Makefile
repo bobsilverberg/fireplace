@@ -79,3 +79,16 @@ test-package:
 
 sherlocked:
 	sleep 10 && node sherlocked.js
+
+WEBQA_VENV ?= '.virtualenvs/webqa'
+WEBQA_TESTS ?= 'webqa-tests'
+
+uitest-webqa:
+	${WEBQA_VENV}/bin/py.test -r=fsxXR --verbose -n=5 --baseurl=${TEST_URL} --driver=firefox --destructive ${WEBQA_TESTS}/tests/desktop/consumer_pages
+
+install-webqa:
+	test -d ${WEBQA_VENV} || virtualenv ${WEBQA_VENV}
+	${WEBQA_VENV}/bin/pip install -U pytest-timeout pytest-xdist
+	test -d ${WEBQA_TESTS} || git clone --depth 1 https://github.com/mozilla/marketplace-tests/ ${WEBQA_TESTS}
+	git -C ${WEBQA_TESTS} pull
+	${WEBQA_VENV}/bin/pip install -Ur ${WEBQA_TESTS}/requirements.txt

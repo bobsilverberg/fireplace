@@ -21,6 +21,7 @@ env:
   matrix:
   - RUN_TEST=uitest-phantom START_SERVER=1 UPLOAD_CAPTURES=1 MAKE_LANGPACKS=1
   - RUN_TEST=uitest-slimer START_SERVER=1 UPLOAD_CAPTURES=1 MAKE_LANGPACKS=1
+  - RUN_TEST=uitest-webqa START_SERVER=1
   - RUN_TEST=sherlocked API=mock START_SERVER=1 MAKE_LANGPACKS=1
   - RUN_TEST=lint
   - RUN_TEST=unittest
@@ -33,6 +34,7 @@ matrix:
   allow_failures:
   - env: RUN_TEST=uitest-phantom START_SERVER=1 UPLOAD_CAPTURES=1 MAKE_LANGPACKS=1
   - env: RUN_TEST=sherlocked API=mock START_SERVER=1 MAKE_LANGPACKS=1
+  - env: RUN_TEST=uitest-webqa START_SERVER=1
 before_script:
 - export PHANTOMJS_EXECUTABLE='phantomjs --local-to-remote-url-access=yes --ignore-ssl-errors=yes'
 - export SLIMERJSLAUNCHER=$(which firefox)
@@ -42,6 +44,7 @@ before_script:
 - if [ $START_SERVER ]; then bash tests/serve.sh; fi
 - if [ $MAKE_LANGPACKS ]; then commonplace langpacks; fi
 - if [ $RUN_TEST = 'uitest-slimer' ]; then make install-slimer; fi
+- if [ $RUN_TEST = 'uitest-webqa' ]; then make install-webqa; fi
 script:
 - make $RUN_TEST
 - if [ $UPLOAD_CAPTURES ]; then make upload-captures; fi
