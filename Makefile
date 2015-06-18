@@ -85,7 +85,7 @@ WEBQA_VENV ?= '.virtualenvs/webqa'
 WEBQA_TESTS ?= 'webqa-tests'
 
 uitest-webqa:
-	${WEBQA_VENV}/bin/py.test -r=fsxXR --verbose -n=5 --baseurl=${TEST_URL} --driver=firefox --destructive ${WEBQA_TESTS}/tests/desktop/consumer_pages
+	${WEBQA_VENV}/bin/py.test -r=fsxXR --verbose -n=5 --baseurl=${TEST_URL} --driver=firefox --destructive -m "not credentials and not action_chains" ${WEBQA_TESTS}/tests/desktop/consumer_pages
 
 install-webqa:
 	curl -O https://pypi.python.org/packages/source/v/virtualenv/virtualenv-${VIRTUALENV_VERSION}.tar.gz
