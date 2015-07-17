@@ -6,7 +6,7 @@ python main.py &
 popd
 mv src/media/js/settings_local_test.js src/media/js/settings_local.js
 make build
-MKT_COMPILED=1 API=$API make serve &
+MKT_COMPILED=1 make serve &
 sleep 10
 
 # Make sure flue is ready.
