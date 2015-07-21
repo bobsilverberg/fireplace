@@ -17,6 +17,12 @@ node_js:
 - '0.10'
 addons:
   sauce_connect: true
+  artifacts:
+    paths:
+    - results
+    permissions: public-read
+    bucket: fireplace-tests
+    debug: true
 env:
   matrix:
   - RUN_TEST=uitest-phantom START_SERVER=1 UPLOAD_CAPTURES=1 MAKE_LANGPACKS=1
@@ -30,6 +36,8 @@ env:
   global:
   - secure: ZiW8luJSf9AFCf+ZfMeSeD8Njv4rWjMNrPW31aaZ5axqpdHT1ml23Tsl2H3Lu6sFQ1kYqb/QtXW9PLMkfwsddI7uR52eKDzd1rbrNcyNnt9L2kcrPdK1sJdUEDDlQ3MkdcCQxod3I4hFNYRyD7HbJxOBbgshCYj2T7fv0GVOT2k=
   - secure: dv/0SujZlQ5d/YS0I3bZm51NHq6Fc1BbVxRMbWF1x77LqjGG938uQu5WTgoGVWNc53cW2PIJWygZM/kCxn48l8zUUhwX81ngpQFUOVTMgirI0fvb8xnzG+i27FmVnGz4CI/4Ll0GWlgPfRPYSm6ZtyzDLQFzwGEEsAQTSgaYrRc=
+  - secure: jb0xlSQ+sn8IG0zwJQOhwAPZLASm1qB/B+SartDMD47gV18uPnMPvAT8tlSIR7ZphEEWZfS3z/0Msfe4Akg/LrjaIOheWuwbmKTA4lAoJgbHpElZqsxZ2t4WE7pStYeCHb2bn+XFARagIksSahXHuQcpY5PwvdFoOibj0MMUsj0XWTxlU+YWjdt49lbV3avPeP+SwNi2JCIdlWiwS+ATbQefW+8edbNjcHb7PW0aCpFmYNFqKJK6arQq0wPXMmMFvsfOn08BrhAZUbE+eONIVmEs7bmC/JD0FbTUAY+E545fhaW7ZFyt47faD46dnFePJXlhVnL4b3QrVLJer/T/+lPkrMrWCYsHawo9v5uQ/kEYkwQmEGbjhFQG9Ulgxxsh529SgIDVr8ZP+cTAkac6htkPAcGaSSmfG+oNeyB/QZsigGJuKQczNWjm6uYTQB/UD4epfCcPIT09ggxqNnD+wMoAJgccnMhOqhh7kPOt8PF1I4k3QA9cSvK4BzrJ4qvxcDyQqEdaoTN8/G152s+32Akf/2XKHis7rlPQp2eHcx/nWa81aZPotXnG+FnMnG3zDlVV1kZ0gZ57CJtWZBOXDY2rtO3gQ9fUTPAkXyQAQD/LNRX0BDPAdVhTwJtGxKq9x+ZOdUYUPrYwRas1LLf9zwQ/XXglHoV5FmOXhkO5X9c=
+  - secure: pLoqHoDqhuMXIazK6uYxFq/MUFutiL+Bav1q725ZWkuIr7H2mH+XDE/9h4hTLpLc4SPCAPD+oPJhSSvDtT7b9xqMBxyoYC8GzsXhjgcGmGApjvI+T1DWXRm8JLTK+ba1kIxdfO4C8uYO/qCL/WylJk29LmiGbB6cJJtrwBdQ3rKDchSn1huPxE0VjV9BoIvjipMHBW/dwLASr2NaSG8aZ4OTetkjMYhOW+2Z0zJE7CvEE/Pl+HtMO0fb7ML7r6xh4F/A0+47KY6Avd8MT/AvlNNBy+GJln3dWWcUSQQtyPoKrT9j7f6fdCUY+nDFzlPkNVMCTgTWJRnJUz4qdy/OpwTL6WM1kuHn/jhrF4sM6ozX7PLEMr8fhT4Kb9oGyGftMaEybUAq3E41cZt8zsez9+wy6ak98S9ppPXcEcj5y4GuKJegsPiQMmL9hXbB8iiAUPcZCY4EtY/gS+gQmmbaovBWx//M1/DysfEzeTXy9cEX6LS8lWFhejQk6MDr0V4UIdcWrqmmeZazeVyTQxnRyWwKVRTfnNzzL7TEClu95RwtDfPTKPVd1NUAfyWbmxwlGONjbGYElSxRQ+VOFIH1ftc7jayunx5FNbZHvsmZSzR+xS1sksLgJqH+/wPDPoAaSzSG3R5BBR8C6A8uD7HrpJbrFYzWQQUHzxUQcokCRPg=
 matrix:
   allow_failures:
   - env: RUN_TEST=uitest-phantom START_SERVER=1 UPLOAD_CAPTURES=1 MAKE_LANGPACKS=1
