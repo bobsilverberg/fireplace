@@ -27,7 +27,7 @@ env:
   matrix:
   - RUN_TEST=uitest-phantom START_SERVER=1 UPLOAD_CAPTURES=1 MAKE_LANGPACKS=1
   - RUN_TEST=uitest-slimer START_SERVER=1 UPLOAD_CAPTURES=1 MAKE_LANGPACKS=1
-  - RUN_TEST=uitest-webqa API=mock START_SERVER=1
+  - RUN_TEST=uitest-webqa START_SERVER=1 FIREPLACE_SETTINGS=src/media/js/settings_local_webqa.js
   - RUN_TEST=sherlocked API=mock START_SERVER=1 MAKE_LANGPACKS=1
   - RUN_TEST=lint
   - RUN_TEST=unittest
@@ -42,7 +42,7 @@ matrix:
   allow_failures:
   - env: RUN_TEST=uitest-phantom START_SERVER=1 UPLOAD_CAPTURES=1 MAKE_LANGPACKS=1
   - env: RUN_TEST=sherlocked API=mock START_SERVER=1 MAKE_LANGPACKS=1
-  - env: RUN_TEST=uitest-webqa API=mock START_SERVER=1
+  - env: RUN_TEST=uitest-webqa START_SERVER=1 FIREPLACE_SETTINGS=src/media/js/settings_local_webqa.js
 before_script:
 - export PHANTOMJS_EXECUTABLE='phantomjs --local-to-remote-url-access=yes --ignore-ssl-errors=yes'
 - export SLIMERJSLAUNCHER=$(which firefox)
