@@ -22,7 +22,6 @@ addons:
     - results
     permissions: public-read
     bucket: fireplace-tests
-    debug: true
 env:
   matrix:
   - RUN_TEST=uitest-phantom START_SERVER=1 UPLOAD_CAPTURES=1 MAKE_LANGPACKS=1
