@@ -92,6 +92,6 @@ install-webqa:
 	tar xvfz virtualenv-${VIRTUALENV_VERSION}.tar.gz
 	test -d ${WEBQA_VENV} || virtualenv-${VIRTUALENV_VERSION}/virtualenv.py ${WEBQA_VENV}
 	${WEBQA_VENV}/bin/pip install -U pytest-timeout pytest-xdist
-	test -d ${WEBQA_TESTS} || git clone -b master --depth 1 https://github.com/bobsilverberg/marketplace-tests/ ${WEBQA_TESTS}
+	test -d ${WEBQA_TESTS} || git clone -b more_search --depth 1 https://github.com/bobsilverberg/marketplace-tests/ ${WEBQA_TESTS}
 	git -C ${WEBQA_TESTS} pull
 	${WEBQA_VENV}/bin/pip install -Ur ${WEBQA_TESTS}/requirements.txt
